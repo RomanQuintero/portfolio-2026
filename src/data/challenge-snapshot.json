@@ -1,0 +1,117 @@
+[
+  {
+    "number": 1,
+    "title": "Screen Watcher",
+    "description": "Local desktop application that detects visual changes and builds a semantic history of screen activity.",
+    "technologies": ["Python", "PyTorch", "Qwen3-VL", "DXcam", "Tkinter"],
+    "repositoryUrl": "https://github.com/RomanQuintero/screen-watcher",
+    "published": true
+  },
+  {
+    "number": 2,
+    "title": "TinyDB",
+    "description": "Key-value database built from scratch to explore indexing, append-only storage and log compaction through benchmarks.",
+    "technologies": ["C++", "CMake", "Binary Storage", "Hash Indexing"],
+    "repositoryUrl": "https://github.com/RomanQuintero/tinydb",
+    "published": true
+  },
+  {
+    "number": 3,
+    "title": "Kafka Market Stream",
+    "description": "Real-time market data pipeline that streams Binance trades through Kafka to independent consumers and a live dashboard.",
+    "technologies": ["Java", "Kafka", "Docker", "React", "TypeScript", "SSE"],
+    "repositoryUrl": "https://github.com/RomanQuintero/kafka-market-stream",
+    "published": true
+  },
+  {
+    "number": 4,
+    "title": "Unity vs Unreal Face AR",
+    "description": "One-day experiment comparing Unity and Unreal Engine by building the same Android face-tracking AR experience.",
+    "technologies": [
+      "Unity",
+      "Unreal Engine",
+      "Android",
+      "ARCore",
+      "Face Tracking"
+    ],
+    "repositoryUrl": "https://github.com/RomanQuintero/unity-vs-unreal-face-ar",
+    "published": true
+  },
+  {
+    "number": 5,
+    "title": "Local Academic RAG",
+    "description": "Local RAG system with structure-aware retrieval, grounded generation and traceable sources over academic documents.",
+    "technologies": [
+      "Python",
+      "BGE-M3",
+      "Qwen3",
+      "Ollama",
+      "FastAPI",
+      "Spring Boot"
+    ],
+    "repositoryUrl": "https://github.com/RomanQuintero/local-academic-rag",
+    "published": true
+  },
+  {
+    "number": 6,
+    "title": "Adaptive Edge-Cloud Inference",
+    "description": "Adaptive vision system where global Cloud detections guide local Edge attention, reducing remote inference calls by 71% and transferred data by 74% in a reproducible video benchmark.",
+    "technologies": [
+      "Kotlin",
+      "Android",
+      "TFLite",
+      "Python",
+      "FastAPI",
+      "PyTorch",
+      "CUDA"
+    ],
+    "repositoryUrl": "https://github.com/RomanQuintero/adaptive-edge-cloud-inference",
+    "published": true
+  },
+  {
+    "number": 7,
+    "title": "Personal Web Search",
+    "description": "From-scratch web search engine with controlled crawling, an inverted index and BM25 ranking, revisiting a personal search engine project from 2022.",
+    "technologies": ["Java", "Jsoup", "BM25", "Information Retrieval"],
+    "repositoryUrl": "https://github.com/RomanQuintero/personal-web-search",
+    "published": true
+  },
+  {
+    "number": 8,
+    "title": "GLB Stress Lab",
+    "description": "Browser performance experiment comparing main-thread and Web Worker GLB loading, measuring responsiveness, blocking time and time to first rendered frame across increasingly large 3D assets.",
+    "technologies": [
+      "JavaScript",
+      "Three.js",
+      "Web Workers",
+      "WebGL",
+      "Performance API"
+    ],
+    "repositoryUrl": "https://github.com/RomanQuintero/glb-stress-lab",
+    "published": true
+  },
+  {
+    "number": 9,
+    "title": "Desktop Dragon",
+    "description": "Persistent Windows desktop pet with global eye tracking, direct interaction and a lightweight Tamagotchi-style state that continues evolving while the application is closed.",
+    "technologies": ["C#", ".NET 8", "WPF", "Win32", "JSON"],
+    "repositoryUrl": "https://github.com/RomanQuintero/desktop-dragon",
+    "published": true
+  },
+  {
+    "number": 10,
+    "title": "",
+    "description": "",
+    "technologies": [],
+    "repositoryUrl": null,
+    "published": false
+  },
+  {
+    "number": 30,
+    "title": "",
+    "description": "",
+    "technologies": [],
+    "repositoryUrl": null,
+    "published": false
+  }
+]
