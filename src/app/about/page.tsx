@@ -63,7 +63,7 @@ export default function About() {
             </div>
           ))}
           <p className="mono focus-note">
-            PORTFOLIO / STAGE I<br />A FOUNDATION FOR WHAT COMES NEXT.
+            PORTFOLIO / STAGE II<br />THE FINAL LEVEL IS OPEN.
           </p>
         </aside>
       </section>

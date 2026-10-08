@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { getChallengeProjects } from "@/lib/challenge";
 import { levelSlots } from "@/lib/challenge-parser";
+import { getShippedCount } from "@/lib/challenge-state";
 import { pageMetadata, siteDescription } from "@/lib/site";
 export const metadata = pageMetadata("Home", siteDescription, "/");
 import { SystemMap } from "@/components/system-map";
@@ -12,6 +13,8 @@ export default async function Home() {
   const { projects } = await getChallengeProjects();
   const foundations = levelSlots(projects, 1, 9).filter(p => p.published).length;
   const levelTwoComplete = levelSlots(projects, 11, 19).every(p => p.published);
+  const milestones = levelSlots(projects, 21, 30).filter(p => p.published).length;
+  const shipped = getShippedCount(projects);
   return (
     <>
       <section className="hero wrap">
@@ -122,30 +125,40 @@ export default async function Home() {
           <div className="program-preview">
             <div className="program-preview-top mono">
               <span>BUILD SEQUENCE</span>
-              <span>01 — 30</span>
+              <span>{String(shipped).padStart(2, "0")} / 30 SHIPPED</span>
             </div>
             <div className="sequence-row">
               <span>01—09</span>
               <strong>LEVEL I</strong>
               <span className="pill">{foundations === 9 ? "COMPLETE" : foundations + " / 9 RELEASED"}</span>
             </div>
-            <Link href="/30-projects" className="sequence-current">
-              <span className="sequence-ten">10</span>
-              <div>
-                <span className="mono">YOU ARE HERE</span>
-                <h3>Portfolio / Stage I</h3>
-              </div>
-              <span>↗</span>
-            </Link>
+            <div className="sequence-row">
+              <span>10</span>
+              <strong>PORTFOLIO / STAGE I</strong>
+              <span className="pill">COMPLETE</span>
+            </div>
             <div className="sequence-row">
               <span>11—19</span>
               <strong>LEVEL II</strong>
               <span className="pill">{levelTwoComplete ? "COMPLETE" : "ACTIVE"}</span>
             </div>
+            <Link href="/30-projects" className="sequence-current">
+              <span className="sequence-ten">20</span>
+              <div>
+                <span className="mono">YOU ARE HERE</span>
+                <h3>Portfolio / Stage II</h3>
+              </div>
+              <span>↗</span>
+            </Link>
+            <div className="sequence-row">
+              <span>21—29</span>
+              <strong>LEVEL III / PRODUCT</strong>
+              <span className="pill">{milestones === 10 ? "COMPLETE" : milestones + " / 10 MILESTONES"}</span>
+            </div>
             <div className="sequence-row muted">
-              <span>21—30</span>
-              <strong>LEVEL III</strong>
-              <span className="mono">LOCKED</span>
+              <span>30</span>
+              <strong>PORTFOLIO / STAGE III</strong>
+              <span className="mono">FINAL CHECKPOINT</span>
             </div>
           </div>
         </div>

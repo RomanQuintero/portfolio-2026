@@ -920,12 +920,97 @@ main:focus {
   gap: 22px;
   color: var(--muted);
 }
+.stage-two h2,
 .stage-two h3 {
   font-size: 1.2rem;
   color: var(--text);
 }
 .level-three {
-  padding: 65px 0 90px;
+  padding: 65px 0;
+}
+/* Level III is one central project, not nine separate experiments: its own accent. */
+.level-three .level-heading h2,
+.level-three .brief-facts strong {
+  color: var(--cyan);
+}
+.level-three .eyebrow {
+  color: var(--cyan);
+}
+.level-three .pill {
+  color: var(--cyan);
+  border-color: #65dce550;
+}
+.level-three-brief {
+  display: grid;
+  grid-template-columns: 1.7fr 1fr;
+  gap: 55px;
+  border-left: 2px solid var(--cyan);
+  background: linear-gradient(90deg, #65dce50d, transparent 60%);
+  padding: 30px 32px;
+  margin-bottom: 36px;
+}
+.level-three-brief h3 {
+  font-size: 1.75rem;
+  letter-spacing: -0.03em;
+  color: var(--cyan);
+}
+.level-three-brief .level-description {
+  margin: 14px 0 0;
+  max-width: 640px;
+}
+.brief-facts {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 22px 18px;
+  align-content: start;
+  padding-top: 4px;
+}
+.brief-facts .mono {
+  display: block;
+  font-size: 0.7rem;
+  color: var(--muted);
+  margin-bottom: 7px;
+}
+.brief-facts strong {
+  font-size: 0.95rem;
+  font-weight: 400;
+}
+.level-three .challenge-card {
+  border-color: #65dce526;
+}
+.level-three .challenge-card:not(.locked):hover {
+  border-color: #65dce570;
+}
+.level-three .published-status,
+.level-three .card-arrow,
+.level-three .repo-link:hover,
+.level-three .seal-icon {
+  color: var(--cyan);
+}
+.level-three .awaiting-release {
+  border-color: #65dce54d;
+}
+.grid-note {
+  display: block;
+  color: var(--muted);
+  font-size: 0.75rem;
+  margin-bottom: 22px;
+}
+.day-label {
+  font-size: 0.7rem;
+  color: var(--cyan);
+  margin: -18px 0 18px;
+  letter-spacing: 0.08em;
+}
+.locked .day-label {
+  color: #7f949a;
+}
+.stage-final {
+  margin-bottom: 90px;
+  border-color: #65dce526;
+}
+.stage-final h2 {
+  color: var(--cyan);
 }
 .sealed-level {
   border: 1px solid var(--line);
@@ -1057,6 +1142,10 @@ main:focus {
     grid-template-columns: 1.4fr 1fr;
     gap: 30px;
   }
+  .level-three-brief {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
   .challenge-stats strong {
     font-size: 4rem;
   }
@@ -1114,6 +1203,7 @@ main:focus {
   .stage-two {
     flex-wrap: wrap;
   }
+  .stage-two h2,
   .stage-two h3 {
     width: 100%;
     order: 3;
@@ -1122,7 +1212,15 @@ main:focus {
     font-size: 0.75rem;
   }
   .level-three {
-    padding: 45px 0 65px;
+    padding: 45px 0;
+  }
+  .level-three-brief {
+    grid-template-columns: 1fr;
+    gap: 28px;
+    padding: 24px;
+  }
+  .stage-final {
+    margin-bottom: 65px;
   }
   .sealed-level .mono {
     font-size: 0.75rem;

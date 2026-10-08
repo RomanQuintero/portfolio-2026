@@ -1,7 +1,11 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
 import { projects, getProject, projectHref } from "../src/lib/projects";
-import { getNextLevelTwoProjectNumber } from "../src/lib/challenge-state";
+import {
+  getNextLevelTwoProjectNumber,
+  getNextProjectNumber,
+  getShippedCount,
+} from "../src/lib/challenge-state";
 import type { ChallengeProject } from "../src/lib/challenge-parser";
 const release = (number: number, published = true): ChallengeProject => ({
   number,
@@ -56,5 +60,22 @@ test("exactly the next missing Level II slot is active, including gaps", () => {
   assert.equal(
     getNextLevelTwoProjectNumber([release(10), release(20), release(21)]),
     11,
+  );
+});
+test("Level III (#21–#29) marks only its next missing build and the counter includes the live portfolio stages", () => {
+  assert.equal(getNextProjectNumber([], 21, 29), 21);
+  assert.equal(getNextProjectNumber([release(21), release(22)], 21, 29), 23);
+  assert.equal(getNextProjectNumber([release(21), release(23)], 21, 29), 22);
+  assert.equal(
+    getNextProjectNumber(Array.from({ length: 9 }, (_, i) => release(i + 21)), 21, 29),
+    null,
+  );
+  assert.equal(getShippedCount([]), 2);
+  assert.equal(getShippedCount([release(30, false)]), 2);
+  assert.equal(getShippedCount([release(30)]), 3);
+  assert.equal(getShippedCount([release(1), release(10), release(20, false)]), 3);
+  assert.equal(
+    getShippedCount(Array.from({ length: 30 }, (_, i) => release(i + 1))),
+    30,
   );
 });

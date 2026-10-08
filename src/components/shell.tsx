@@ -54,13 +54,13 @@ export function Footer() {
         ROMAN QUINTERO<span>SOFTWARE ENGINEER</span>
       </Link>
       <div>
-        <span className="mono">PORTFOLIO / STAGE I</span>
+        <span className="mono">PORTFOLIO / STAGE II</span>
         <p>Built to explore. Designed to evolve.</p>
       </div>
       <a href={profile.github} target="_blank" rel="noreferrer">
         GitHub ↗
       </a>
-      <span className="mono">CURRENT BUILD / #10</span>
+      <span className="mono">CURRENT BUILD / #20</span>
     </footer>
   );
 }

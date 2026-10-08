@@ -6,16 +6,32 @@ import {
   parseChallengeReadme,
   safeUrl,
 } from "../src/lib/challenge-parser";
-test("actual README preserves numbering and detects the nine published projects", () => {
+test("actual README preserves numbering through Level II and leaves Level III open", () => {
   const projects = parseChallengeReadme(
     readFileSync("challenge-readme.md", "utf8"),
   );
-  assert.equal(projects.filter((p) => p.published).length, 9);
+  assert.equal(projects.filter((p) => p.published).length, 19);
   assert.equal(projects[5].number, 6);
   assert.equal(projects[5].title, "Adaptive Edge-Cloud Inference");
-  assert.equal(projects.find((p) => p.number === 10)?.published, false);
-  assert.equal(levelSlots(projects, 11, 19).length, 9);
-  assert.ok(levelSlots(projects, 11, 19).every((p) => !p.published));
+  assert.equal(projects.find((p) => p.number === 10)?.title, "Portfolio 2026");
+  assert.ok(levelSlots(projects, 11, 19).every((p) => p.published));
+  assert.equal(projects.find((p) => p.number === 20)?.published, false);
+  assert.equal(levelSlots(projects, 21, 29).length, 9);
+  assert.ok(levelSlots(projects, 21, 29).every((p) => !p.published));
+  assert.equal(projects.find((p) => p.number === 30)?.published, false);
+});
+test("Level III releases are read from the same table format as earlier levels", () => {
+  const rows = parseChallengeReadme(
+    "| # | Project | Description | Tech |\n|---|---|---|---|\n| 21 | [Day one](https://github.com/owner/day-one) | First daily build. | Rust · WebGPU |\n| 22 | — | — | — |\n| 23 | [Day three](https://github.com/owner/day-three) | Third daily build. | Go |",
+  );
+  const slots = levelSlots(rows, 21, 29);
+  assert.equal(slots.length, 9);
+  assert.deepEqual(
+    slots.filter((p) => p.published).map((p) => p.number),
+    [21, 23],
+  );
+  assert.deepEqual(slots[0].technologies, ["Rust", "WebGPU"]);
+  assert.equal(slots[1].published, false);
 });
 test("future releases reveal by number even with reordered columns and escaped pipes", () => {
   const rows = parseChallengeReadme(

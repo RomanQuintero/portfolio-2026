@@ -1,6 +1,8 @@
-# Roman Quintero — Portfolio / Stage I
+# Roman Quintero — Portfolio / Stage II
 
 Personal portfolio built with Next.js for selected engineering work and the **30 Projects** experimental build program.
+
+This is build **#20** of the challenge: Stage II of the portfolio, derived from Stage I (#10). It opens Level III (#21–#29) in the challenge tracker, leading to the final checkpoint, Portfolio / Stage III (#30).
 
 The site combines project case studies, a README-driven challenge tracker and a lightweight technical visual system built with React, TypeScript, Tailwind CSS and Motion.
 
@@ -106,20 +108,24 @@ This is an emergency/fallback mechanism and is **not** part of the normal publis
 
 ## Challenge progression
 
-Stage I defines three challenge states:
-
 - **Level I — #01–#09:** completed projects.
-- **#10:** Portfolio / Stage I checkpoint.
-- **Level II — #11–#19:** active progression.
-- **#20:** Portfolio / Stage II checkpoint.
-- **Level III — #21–#30:** locked until Stage II.
+- **#10:** Portfolio / Stage I checkpoint (complete).
+- **Level II — #11–#19:** completed projects.
+- **#20:** Portfolio / Stage II checkpoint (current build).
+- **Level III — #21–#30:** one independent product released as ten development milestones, one per day. #21–#29 are product milestones; **#30** is the final checkpoint, Portfolio / Stage III.
 
-Within Level II:
+Level III is presented differently from Levels I and II: it opens with a product brief ("From projects to product"), uses its own accent, and each card is labelled as a milestone of the same product rather than an independent experiment.
+
+Mechanically it follows the same rules as Level II:
 
 - released projects remain fully visible and static;
 - only the next missing project is marked **Awaiting Release**;
 - later slots remain **Unreleased / Restricted**;
-- completing all nine projects changes the level to **Complete**.
+- completing every slot changes the level to **Complete**.
+
+Level III rows are published in the central `30-projects` README with exactly the same table format as earlier levels (`# | Project | Description | Tech`), each linking to its own repository. No portfolio change is needed to release #21–#29.
+
+The **builds shipped** counter counts every published row from #01 to #30 and always includes the live portfolio checkpoints (#10 and #20); #30 counts once its row is published.
 
 Previously released projects do not replay artificial unlock animations when the page loads.
 
@@ -191,15 +197,13 @@ Browser verification scripts are available under `scripts/` but are not required
 
 ## Stage II
 
-Portfolio Stage II is intentionally deferred.
+Changes from Stage I:
 
-Potential future work includes:
+- #20 becomes the current checkpoint on `/30-projects`, the home page, footer and profile; #10 is shown as a completed checkpoint;
+- Level III (#21–#29) is unlocked and rendered from the central README like Level II, with a product brief and its own visual identity;
+- #30 is reserved as the final checkpoint, Portfolio / Stage III, counted as milestone 10 of 10;
+- the shipped counter is derived from the README instead of fixed level arithmetic;
+- the fallback snapshot is refreshed with Level II (#01–#19 published);
+- tests cover Level III parsing, next-release detection and the counter.
 
-- richer project visualizations;
-- 3D / WebGL experiences;
-- advanced challenge statistics;
-- additional verified project material;
-- a different challenge data provider;
-- unlocking Level III.
-
-Stage I deliberately keeps these features out of scope.
+Still deferred: richer visualizations, 3D / WebGL, challenge statistics and a different data provider.

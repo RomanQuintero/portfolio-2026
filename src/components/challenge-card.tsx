@@ -2,9 +2,12 @@ import type { ChallengeProject } from "@/lib/challenge-parser";
 export function ChallengeCard({
   project,
   awaitingRelease = false,
+  dayLabel,
 }: {
   project: ChallengeProject;
   awaitingRelease?: boolean;
+  /** Level III only: position of this build inside the central project. */
+  dayLabel?: string;
 }) {
   const number = String(project.number).padStart(2, "0");
   if (!project.published)
@@ -18,6 +21,7 @@ export function ChallengeCard({
             {awaitingRelease ? "AWAITING RELEASE" : "UNRELEASED"}
           </span>
         </div>
+        {dayLabel && <span className="mono day-label">{dayLabel}</span>}
         <div className="restricted-pattern" aria-hidden="true" />
         <h3>{awaitingRelease ? "Awaiting release" : "Unreleased project"}</h3>
         <p>
@@ -34,6 +38,7 @@ export function ChallengeCard({
         <span className="challenge-number">{number}</span>
         <span className="mono published-status">PUBLISHED</span>
       </div>
+      {dayLabel && <span className="mono day-label">{dayLabel}</span>}
       <h3>
         <a href={project.repositoryUrl!} target="_blank" rel="noreferrer">
           {project.title}

@@ -12,7 +12,7 @@ test("README loading falls back on network errors, malformed and empty replaceme
   ]) {
     const result = await loadChallengeProjects(read);
     assert.equal(result.source, "snapshot");
-    assert.equal(result.projects.filter(p => p.published).length, 9);
+    assert.equal(result.projects.filter(p => p.published).length, 19);
   }
 });
 test("README provider preserves future releases without a manual portfolio update", async () => {
